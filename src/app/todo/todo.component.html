@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <input
+        class="form-control col-10"
+        type="text"
+        placeholder="enter new task"
+        [(ngModel)]="name"
+      />
+      <div class="col-auto">
+      <button class="btn btn-primary " (click)="addNewItem()">
+        Add New Task
+      </button>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>IsCompete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list.OpenTodo; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.title }}</td>
+            <td>
+              <input type="checkbox" [(ngModel)]="item.isComplete" />
+            </td>
+          </tr>
+        </tbody>
+        <tfoot></tfoot>
+      </table>
+    </div>
+    <div class="col-6">
+      <table class="table table-striped col-6">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>IsCompete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list.CloseToDo; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.title }}</td>
+            <td><input type="checkbox" [(ngModel)]="item.isComplete" /></td>
+          </tr>
+        </tbody>
+        <tfoot></tfoot>
+      </table>
+    </div>
+  </div>
+</div>
